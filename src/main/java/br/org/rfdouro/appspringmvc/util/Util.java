@@ -19,14 +19,18 @@ import java.util.List;
 import java.util.Properties;
 import javax.persistence.EntityManager;
 import javax.servlet.ServletContext;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import org.jasypt.util.text.BasicTextEncryptor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  *
  * @author romulo.douro
  */
 public class Util {
-
+  
  public static final ThreadLocal<SimpleDateFormat> tsdf = new ThreadLocal<SimpleDateFormat>() {
   @Override
   protected SimpleDateFormat initialValue() {
@@ -168,5 +172,35 @@ public class Util {
   }
 
   return msgErro;
+ }
+ 
+ public static Cookie getCookie(HttpServletRequest request, String cookieName) {
+  Cookie[] cookies = request.getCookies();
+  if (cookies != null) {
+   for (Cookie cookie : cookies) {
+    if (cookie.getName().equals(cookieName)) {
+     return cookie;
+    }
+   }
+  }
+  return null;
+ }
+ 
+ public static String encode(String v){
+  //byte[] b = org.springframework.security.crypto.codec.Base64.encode(v.getBytes());
+  /*char[] b = org.springframework.security.crypto.codec.Hex.encode(v.getBytes());
+  return new String(b);*/
+  BasicTextEncryptor encriptador = new BasicTextEncryptor();
+  encriptador.setPassword("1234567980");
+  return encriptador.encrypt(v);
+ }
+ 
+ public static String decode(String v){
+  //byte[] b = org.springframework.security.crypto.codec.Base64.decode(v.getBytes());
+  /*byte[]  b = org.springframework.security.crypto.codec.Hex.decode(v);
+  return new String(b);*/
+  BasicTextEncryptor encriptador = new BasicTextEncryptor();
+  encriptador.setPassword("1234567980");
+  return encriptador.decrypt(v);
  }
 }

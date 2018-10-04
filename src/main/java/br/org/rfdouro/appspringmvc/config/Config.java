@@ -20,14 +20,14 @@ import org.springframework.web.servlet.view.JstlView;
 /**
  *
  * @author romulo.douro
- * 
+ *
  * https://www.boraji.com/spring-mvc-5-static-resources-handling-example
  */
 @Configuration
 @ComponentScan("br.org.rfdouro.appspringmvc")
 @EnableWebMvc
 public class Config implements WebMvcConfigurer {
- 
+
  @Override
  public void configureViewResolvers(ViewResolverRegistry registry) {
   //registry.jsp("/WEB-INF/jsp/", ".jsp");
@@ -37,27 +37,33 @@ public class Config implements WebMvcConfigurer {
   resolver.setViewClass(JstlView.class);
   registry.viewResolver(resolver);
  }
- 
+
  @Override
  public void addResourceHandlers(ResourceHandlerRegistry registry) {
   // Register resource handler
   registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/");//.setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
  }
- 
+
  @Override
  public void addInterceptors(InterceptorRegistry registry) {
-  registry.addInterceptor(new LoginInterceptor());
-  //registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/documentos/oficios/*");
+  registry.addInterceptor(new LoginInterceptor())
+          //cada modulo deve ser adicionado aqui
+          .addPathPatterns("/pessoa/**")
+          .excludePathPatterns("/**/login/**");
+  /*registry.addInterceptor(new LoginInterceptorWS())
+          .addPathPatterns("/webservice/minhasVendas/**")
+          .excludePathPatterns("/webservice/login/**");*/
  }
- 
+
  /**
   * https://spring.io/blog/2015/06/08/cors-support-in-spring-framework
-  * @param registry 
+  *
+  * @param registry
   */
  @Override
  public void addCorsMappings(CorsRegistry registry) {
   //registry.addMapping("/webservice/**");
   registry.addMapping("/**");
  }
- 
+
 }

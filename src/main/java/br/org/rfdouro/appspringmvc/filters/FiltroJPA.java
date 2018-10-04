@@ -10,6 +10,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,6 +44,19 @@ public class FiltroJPA implements Filter {
  @Override
  public void doFilter(ServletRequest request, ServletResponse response,
          FilterChain chain) throws IOException, ServletException {
+  
+  HttpServletRequest req = (HttpServletRequest) request;
+  String usuLogado = (String) req.getSession().getAttribute("USULOGADO");
+
+  //aqui é para pegar o login por cookie
+  if (usuLogado == null) {
+   Cookie cLogin = Util.getCookie(req, "login");
+   Cookie cSenha = Util.getCookie(req, "senha");
+   if (cLogin != null && cSenha != null) {
+    usuLogado = (String) cLogin.getValue();
+    req.getSession().setAttribute("USULOGADO", usuLogado);
+   }
+  }
 
   String msEX = "";
   EntityManager manager = EntityManagerHelper.getEntityManager(request.getServletContext());

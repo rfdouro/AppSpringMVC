@@ -7,6 +7,7 @@ package br.org.rfdouro.appspringmvc.config;
 
 import br.org.rfdouro.appspringmvc.filters.FiltroJPA;
 import br.org.rfdouro.appspringmvc.helpers.EntityManagerHelper;
+import br.org.rfdouro.appspringmvc.listeners.SessionListener;
 import java.util.EnumSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -61,7 +62,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
   JPAFilter.addMappingForUrlPatterns(dispatcherTypes, true, "/*");
 
   //ouvinte de sessões  (caso exista)
-  //servletContext.addListener(new SessionListener());
+  servletContext.addListener(new SessionListener());
   MultipartConfigElement multipartConfigElement = new MultipartConfigElement(TMP_FOLDER,
           MAX_UPLOAD_SIZE, MAX_UPLOAD_SIZE * 2, MAX_UPLOAD_SIZE / 2);
   servlet.setMultipartConfig(multipartConfigElement);
@@ -69,7 +70,6 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
   try {
    EntityManagerHelper.inicializaDados(servletContext);
   } catch (Exception ex) {
-   //Logger.getLogger(WebInitializer.class.getName()).log(Level.SEVERE, null, ex);
    String m = br.org.rfdouro.appspringmvc.util.Util.getMsgErro(ex);
    System.out.println(m);
   }

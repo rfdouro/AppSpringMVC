@@ -8,8 +8,6 @@ package br.org.rfdouro.appspringmvc.handlers;
 import br.org.rfdouro.appspringmvc.annotations.VerificaAcesso;
 import br.org.rfdouro.appspringmvc.util.Util;
 import java.lang.reflect.Method;
-import java.util.List;
-import javax.persistence.EntityManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +27,26 @@ import org.springframework.web.servlet.ModelAndView;
  * http://www.myjavarecipes.com/tag/spring-mvc-interceptor-annotation-example/
  */
 public class LoginInterceptor implements HandlerInterceptor {
+
+ public boolean verificaLogado(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+  String usuLogado = (String) request.getSession().getAttribute("USULOGADO");
+
+  if (usuLogado == null) {
+
+   RequestDispatcher rd = request.getRequestDispatcher("/login");
+   String pr = (String) request.getServletPath();
+   String redir = (String) request.getAttribute("redir");
+   if (redir != null) {
+    pr = redir;
+   }
+   request.setAttribute("redir", pr);
+   rd.forward(request, response);
+   return false;
+
+  }
+  return this.verificaLogin(request, response, handler);
+ }
 
  public boolean verificaLogin(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
   HandlerMethod hm = (HandlerMethod) handler;
@@ -61,7 +79,7 @@ public class LoginInterceptor implements HandlerInterceptor {
  public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
          throws Exception {
   //System.out.println("---Before Method Execution---");
-  request.getSession().setAttribute("USULOGADO", "usuario");
+  System.out.println("" + request.getSession().getAttribute("USULOGADO"));
   return true;
  }
 
@@ -69,10 +87,10 @@ public class LoginInterceptor implements HandlerInterceptor {
  public void postHandle(HttpServletRequest request, HttpServletResponse response,
          Object handler, ModelAndView modelAndView) throws Exception {
   //System.out.println("---method executed---");
-  System.out.println("" + request.getSession().getAttribute("USULOGADO"));
+
   boolean config = Boolean.parseBoolean(Util.getValorPropriedade(request.getServletContext(), "config"));
   if (!config && (handler instanceof HandlerMethod)) {
-   this.verificaLogin(request, response, handler);
+   this.verificaLogado(request, response, handler);
   }
  }
 
