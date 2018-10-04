@@ -41,6 +41,19 @@ public class LoginController extends DefaultController {
   if (login != null && senha != null && !senha.equals("")) {
 
    this.session.setAttribute("USULOGADO", login);
+   //login ok armazena o cookie
+   {
+    Cookie cookie = new Cookie("login", Util.encode(login));
+    //cookie.setPath("/");
+    cookie.setPath(request.getContextPath());//importantíssimo
+    cookie.setMaxAge(60 * 60 * 24 * 10);//240 horas = 10 dias
+    response.addCookie(cookie);
+    cookie = new Cookie("senha", Util.encode(senha));
+    //cookie.setPath("/");
+    cookie.setPath(request.getContextPath());//importantíssimo
+    cookie.setMaxAge(60 * 60 * 24 * 10);//240 horas = 10 dias
+    response.addCookie(cookie);
+   }
 
   }
   pagina = "redirect:/home";
