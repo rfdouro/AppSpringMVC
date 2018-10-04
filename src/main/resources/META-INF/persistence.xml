@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">   
+ <persistence-unit name="basededados-h2-pu" transaction-type="RESOURCE_LOCAL"> 
+  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+  <properties>
+   <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+   <property name="hibernate.hbm2ddl.auto" value="update"/>
+   <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+   <property name="javax.persistence.jdbc.user" value="root"/>
+   <property name="javax.persistence.jdbc.password" value=""/>
+   <!--property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./data/DB;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE"/-->
+   <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" />
+   <property name="hibernate.show_sql" value="false"/>
+   <property name="hibernate.format_sql" value="true"/>
+  </properties>
+ </persistence-unit>
+ <persistence-unit name="BASEDEDADOS-mysql-pu" transaction-type="RESOURCE_LOCAL">
+  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+  <properties>
+   <!-- dialetos do banco de dados -->
+   <!--property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/-->
+   <!--property name="hibernate.dialect" value="org.hibernate.spatial.dialect.mysql.MySQLSpatialDialect"/-->
+   <property name="hibernate.dialect"	value="org.hibernate.spatial.dialect.mysql.MySQL5InnoDBSpatialDialect"/>
+   <property name="hibernate.hbm2ddl.auto" value="update"/>
+   <!-- usando mysql -->
+   <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+   <!-- usando mariaDB -->
+   <!--property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/-->
+   <!-- opção inválida -->
+   <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/-->
+   <property name="javax.persistence.jdbc.user"	value="root"/>
+   <property name="javax.persistence.jdbc.password"	value="senha"/>
+   <property name="javax.persistence.jdbc.url"	value="jdbc:mysql://localhost:3306/BASEDEDADOS"/>
+   <property name="hibernate.show_sql" value="true" />
+   <property name="hibernate.format_sql" value="true" />
+   <property name="hibernate.id.new_generator_mappings" value="false" /><!-- para gerar o auto increment -->
+   
+   <!-- Configuring Connection Pool -->
+   <!-- http://www.mchange.com/projects/c3p0/ -->
+   <property name="connection.provider_class" value="org.hibernate.c3p0.internal.C3P0ConnectionProvider"/>
+   <property name="hibernate.c3p0.min_size" value="10" /><!-- número mínimo de conexões no pool -->
+   <property name="hibernate.c3p0.max_size" value="20" /><!-- número máximo de conexões no pool -->
+   <property name="hibernate.c3p0.acquire_increment" value="1" /> <!-- Determina quantas conexões por vez o c3p0 tentará adquirir quando o pool estiver esgotado -->
+   <property name="hibernate.c3p0.timeout" value="240" /> <!-- segundos -->
+   <property name="hibernate.c3p0.max_statements" value="50" /><!-- número de preparedstatements em cache -->
+   <property name="hibernate.c3p0.idle_test_period" value="2000" /><!-- tempo ocioso (em segundos) antes que uma conexão seja validada -->
+  </properties>
+ </persistence-unit>
+ <persistence-unit name="BASEDEDADOS-postgre-pu" transaction-type="RESOURCE_LOCAL">
+  <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+  <properties>
+   <property name="hibernate.dialect"	value="org.hibernate.dialect.PostgreSQL9Dialect"/>
+   <property name="hibernate.hbm2ddl.auto" value="update"/>
+   <property name="javax.persistence.jdbc.driver"	value="org.postgresql.Driver"/>
+   <property name="javax.persistence.jdbc.user"	value="postgres"/>
+   <property name="javax.persistence.jdbc.password"	value="senha"/>
+   <property name="javax.persistence.jdbc.url"	value="jdbc:postgresql://localhost:5432/BASEDEDADOS"/>
+           
+   <property name="hibernate.show_sql" value="false" />
+   <property name="hibernate.format_sql" value="false" />
+   <property name="hibernate.id.new_generator_mappings" value="false" /><!-- para gerar o auto increment -->
+   
+   <!-- Configuring Connection Pool -->
+   <!-- http://www.mchange.com/projects/c3p0/ -->
+   <property name="connection.provider_class" value="org.hibernate.c3p0.internal.C3P0ConnectionProvider"/>
+   <property name="hibernate.c3p0.min_size" value="10" /><!-- número mínimo de conexões no pool -->
+   <property name="hibernate.c3p0.max_size" value="20" /><!-- número máximo de conexões no pool -->
+   <property name="hibernate.c3p0.acquire_increment" value="1" /> <!-- Determina quantas conexões por vez o c3p0 tentará adquirir quando o pool estiver esgotado -->
+   <property name="hibernate.c3p0.timeout" value="240" /> <!-- segundos -->
+   <property name="hibernate.c3p0.max_statements" value="50" /><!-- número de preparedstatements em cache -->
+   <property name="hibernate.c3p0.idle_test_period" value="2000" /><!-- tempo ocioso (em segundos) antes que uma conexão seja validada -->
+
+  </properties>
+ </persistence-unit>
+</persistence>
+
