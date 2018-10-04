@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="tmp" tagdir="/WEB-INF/tags/" %>
 <tmp:Layout>
- <form action="login/loga" method="POST">
+ <form action="${cp}/login/loga" method="POST">
   <input type="hidden" name="redir" value="${redir}"/>
   <fieldset>
    <legend>Login</legend>

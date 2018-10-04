@@ -54,6 +54,7 @@ public class FiltroJPA implements Filter {
    Cookie cSenha = Util.getCookie(req, "senha");
    if (cLogin != null && cSenha != null) {
     usuLogado = (String) cLogin.getValue();
+    usuLogado = Util.decode(usuLogado);
     req.getSession().setAttribute("USULOGADO", usuLogado);
    }
   }

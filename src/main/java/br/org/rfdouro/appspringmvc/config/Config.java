@@ -6,6 +6,7 @@
 package br.org.rfdouro.appspringmvc.config;
 
 import br.org.rfdouro.appspringmvc.handlers.LoginInterceptor;
+import br.org.rfdouro.appspringmvc.handlers.LoginInterceptorWS;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -47,12 +48,15 @@ public class Config implements WebMvcConfigurer {
  @Override
  public void addInterceptors(InterceptorRegistry registry) {
   registry.addInterceptor(new LoginInterceptor())
+          //caso queira em separado 
           //cada modulo deve ser adicionado aqui
-          .addPathPatterns("/pessoa/**")
+          //.addPathPatterns("/pessoa/**")
+          //.addPathPatterns("/ws/pessoa/**")
+          .excludePathPatterns("/ws/**")
           .excludePathPatterns("/**/login/**");
-  /*registry.addInterceptor(new LoginInterceptorWS())
-          .addPathPatterns("/webservice/minhasVendas/**")
-          .excludePathPatterns("/webservice/login/**");*/
+  registry.addInterceptor(new LoginInterceptorWS())
+          .addPathPatterns("/ws/**")
+          .excludePathPatterns("/**/login/**");
  }
 
  /**
