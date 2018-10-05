@@ -1,0 +1,22 @@
+#telaSplash {
+ position: fixed;
+ top: 0px;
+ left: 0px;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(249, 249, 249, 0.5);
+ z-index: 9999;
+ visibility: visible;
+}
+
+#divInternoSplash {
+ position: relative;
+ width: 150px;
+ height: 200px;
+ margin-top: -75px;
+ margin-left: -100px;
+ top: 50%;
+ left: 50%;
+ background-color: rgba(249, 249, 249, 0.0);
+ border: none; /*solid 2px #000;*/
+}

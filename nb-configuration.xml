@@ -17,5 +17,65 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>Tomcat</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
         <netbeans.hint.jdkPlatform>JDK_1.8</netbeans.hint.jdkPlatform>
         <netbeans.hint.license>default</netbeans.hint.license>
+        <org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>WEB-INF/resources/vendor</org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>
     </properties>
+    <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1">
+        <library name="bootstrap-submenu" version="2.0.4">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.css" path="css/bootstrap-submenu.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.css.map" path="css/bootstrap-submenu.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.min.css" path="css/bootstrap-submenu.min.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.min.css.map" path="css/bootstrap-submenu.min.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/js/bootstrap-submenu.js" path="js/bootstrap-submenu.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/js/bootstrap-submenu.min.js" path="js/bootstrap-submenu.min.js"/>
+        </library>
+        <library name="font-awesome" version="4.7.0">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/css/font-awesome.css" path="css/font-awesome.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/css/font-awesome.css.map" path="css/font-awesome.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/css/font-awesome.min.css" path="css/font-awesome.min.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/FontAwesome.otf" path="fonts/FontAwesome.otf"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/fontawesome-webfont.eot" path="fonts/fontawesome-webfont.eot"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/fontawesome-webfont.svg" path="fonts/fontawesome-webfont.svg"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/fontawesome-webfont.ttf" path="fonts/fontawesome-webfont.ttf"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/fontawesome-webfont.woff" path="fonts/fontawesome-webfont.woff"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/font-awesome/fonts/fontawesome-webfont.woff2" path="fonts/fontawesome-webfont.woff2"/>
+        </library>
+        <library name="jquery" version="3.3.1">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/core.js" path="core.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.js" path="jquery.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.min.js" path="jquery.min.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.min.map" path="jquery.min.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.slim.js" path="jquery.slim.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.slim.min.js" path="jquery.slim.min.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/jquery/jquery.slim.min.map" path="jquery.slim.min.map"/>
+        </library>
+        <library name="twitter-bootstrap" version="3.3.7">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap-theme.css" path="css/bootstrap-theme.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap-theme.css.map" path="css/bootstrap-theme.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap-theme.min.css" path="css/bootstrap-theme.min.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap-theme.min.css.map" path="css/bootstrap-theme.min.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap.css" path="css/bootstrap.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap.css.map" path="css/bootstrap.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap.min.css" path="css/bootstrap.min.css"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/css/bootstrap.min.css.map" path="css/bootstrap.min.css.map"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/fonts/glyphicons-halflings-regular.eot" path="fonts/glyphicons-halflings-regular.eot"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/fonts/glyphicons-halflings-regular.svg" path="fonts/glyphicons-halflings-regular.svg"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/fonts/glyphicons-halflings-regular.ttf" path="fonts/glyphicons-halflings-regular.ttf"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/fonts/glyphicons-halflings-regular.woff" path="fonts/glyphicons-halflings-regular.woff"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/fonts/glyphicons-halflings-regular.woff2" path="fonts/glyphicons-halflings-regular.woff2"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/js/bootstrap.js" path="js/bootstrap.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/js/bootstrap.min.js" path="js/bootstrap.min.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/twitter-bootstrap/js/npm.js" path="js/npm.js"/>
+        </library>
+        <library name="vue" version="2.5.17">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.common.js" path="vue.common.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.esm.browser.js" path="vue.esm.browser.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.esm.js" path="vue.esm.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.js" path="vue.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.min.js" path="vue.min.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.runtime.common.js" path="vue.runtime.common.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.runtime.esm.js" path="vue.runtime.esm.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.runtime.js" path="vue.runtime.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/vue/vue.runtime.min.js" path="vue.runtime.min.js"/>
+        </library>
+    </libraries>
 </project-shared-configuration>

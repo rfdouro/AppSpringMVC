@@ -12,13 +12,13 @@
    <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
    <property name="javax.persistence.jdbc.user" value="root"/>
    <property name="javax.persistence.jdbc.password" value=""/>
-   <!--property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./data/DB;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE"/-->
-   <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" />
+   <property name="javax.persistence.jdbc.url" value="jdbc:h2:file:./data/DB;AUTO_SERVER=TRUE;DB_CLOSE_ON_EXIT=FALSE"/>
+   <!--property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:test" /-->
    <property name="hibernate.show_sql" value="false"/>
    <property name="hibernate.format_sql" value="true"/>
   </properties>
  </persistence-unit>
- <persistence-unit name="BASEDEDADOS-mysql-pu" transaction-type="RESOURCE_LOCAL">
+ <persistence-unit name="basededados-mysql-pu" transaction-type="RESOURCE_LOCAL">
   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
   <properties>
    <!-- dialetos do banco de dados -->
@@ -34,7 +34,7 @@
    <!--property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/-->
    <property name="javax.persistence.jdbc.user"	value="root"/>
    <property name="javax.persistence.jdbc.password"	value="senha"/>
-   <property name="javax.persistence.jdbc.url"	value="jdbc:mysql://localhost:3306/BASEDEDADOS"/>
+   <property name="javax.persistence.jdbc.url"	value="jdbc:mysql://localhost:3306/basededados"/>
    <property name="hibernate.show_sql" value="true" />
    <property name="hibernate.format_sql" value="true" />
    <property name="hibernate.id.new_generator_mappings" value="false" /><!-- para gerar o auto increment -->
@@ -50,7 +50,7 @@
    <property name="hibernate.c3p0.idle_test_period" value="2000" /><!-- tempo ocioso (em segundos) antes que uma conexão seja validada -->
   </properties>
  </persistence-unit>
- <persistence-unit name="BASEDEDADOS-postgre-pu" transaction-type="RESOURCE_LOCAL">
+ <persistence-unit name="basededados-postgre-pu" transaction-type="RESOURCE_LOCAL">
   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
   <properties>
    <property name="hibernate.dialect"	value="org.hibernate.dialect.PostgreSQL9Dialect"/>
@@ -58,7 +58,7 @@
    <property name="javax.persistence.jdbc.driver"	value="org.postgresql.Driver"/>
    <property name="javax.persistence.jdbc.user"	value="postgres"/>
    <property name="javax.persistence.jdbc.password"	value="senha"/>
-   <property name="javax.persistence.jdbc.url"	value="jdbc:postgresql://localhost:5432/BASEDEDADOS"/>
+   <property name="javax.persistence.jdbc.url"	value="jdbc:postgresql://localhost:5432/basededados"/>
            
    <property name="hibernate.show_sql" value="false" />
    <property name="hibernate.format_sql" value="false" />
