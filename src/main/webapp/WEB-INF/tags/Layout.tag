@@ -30,8 +30,7 @@
   <script src="${cp}/resources/vendor/bootstrap-submenu/js/bootstrap-submenu.min.js" type="text/javascript"></script>
 
   <!--Scripts adicionais-->
-  <!--link href="css/sidebarNavigation.css" rel="stylesheet" type="text/css"/>
-  <script src="js/sidebarNavigation.js" type="text/javascript"></script-->
+  <script src="${cp}/resources/vendor/bootbox.js/bootbox.min.js" type="text/javascript"></script>
 
   <link href="${cp}/resources/css/telaSplash.css" rel="stylesheet" type="text/css"/>
   <script src="${cp}/resources/js/telaSplash.js" type="text/javascript"></script>
@@ -39,7 +38,7 @@
 
 
  </head>
- <body onload="escondeSplash()" onsubmit="mostraSplash()">
+ <body onload="escondeSplash()">
 
   <div id="telaSplash">
    <div id="divInternoSplash">

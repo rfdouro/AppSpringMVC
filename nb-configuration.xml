@@ -20,6 +20,10 @@ Any value defined here will override the pom.xml file value but is only applicab
         <org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>WEB-INF/resources/vendor</org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>
     </properties>
     <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1">
+        <library name="bootbox.js" version="4.4.0">
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootbox.js/bootbox.js" path="bootbox.js"/>
+            <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootbox.js/bootbox.min.js" path="bootbox.min.js"/>
+        </library>
         <library name="bootstrap-submenu" version="2.0.4">
             <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.css" path="css/bootstrap-submenu.css"/>
             <file localPath="src/main/webapp/WEB-INF/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.css.map" path="css/bootstrap-submenu.css.map"/>

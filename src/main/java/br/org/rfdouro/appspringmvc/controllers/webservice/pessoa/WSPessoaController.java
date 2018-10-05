@@ -14,7 +14,9 @@ import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -35,7 +37,7 @@ public class WSPessoaController extends DefaultController {
    if (id == null) {
     List l = this.repositorio.buscaGenerica("select p from Pessoa p order by p.nome");
     ret = objectMapper.writeValueAsString(l);
-   }else{
+   } else {
     Object o = this.repositorio.get(id, Pessoa.class);
     ret = objectMapper.writeValueAsString(o);
    }
@@ -43,6 +45,21 @@ public class WSPessoaController extends DefaultController {
    ret = Util.getMsgErro(ex);
   }
   return ret;
+ }
+
+ @VerificaAcesso(value = "pessoa")
+ @PostMapping(value = {""})
+ public String cadastra(@RequestParam(value = "nome", required = true) String nome) {
+  String mensagem = "Registro inserido";
+  try {
+   this.setRepositorio();
+   Pessoa p = new Pessoa();
+   p.setNome(nome);
+   this.repositorio.adiciona(p, false);
+  } catch (Exception ex) {
+   mensagem = Util.getMsgErro(ex);
+  }
+  return mensagem;
  }
 
 }
