@@ -12,6 +12,7 @@ import br.org.rfdouro.appspringmvc.util.Util;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,6 +57,20 @@ public class WSPessoaController extends DefaultController {
    Pessoa p = new Pessoa();
    p.setNome(nome);
    this.repositorio.adiciona(p, false);
+  } catch (Exception ex) {
+   mensagem = Util.getMsgErro(ex);
+  }
+  return mensagem;
+ }
+ 
+ @VerificaAcesso(value = "pessoa")
+ @DeleteMapping(value = {"/{id}"})
+ public String exclui(@PathVariable(value = "id", required = true) Long id) {
+  String mensagem = "Registro excluído";
+  try {
+   this.setRepositorio();
+   Pessoa p = (Pessoa) this.repositorio.get(id, Pessoa.class);
+   this.repositorio.exclui(p, false);
   } catch (Exception ex) {
    mensagem = Util.getMsgErro(ex);
   }

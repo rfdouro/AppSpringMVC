@@ -25,9 +25,18 @@
   </fieldset>
  </form>
 
- <ol>
-  <li v-for="p in listaPessoas">{{p.nome}}</li>
- </ol>
+ <table class="table table-striped table-responsive">
+  <thead>
+   <tr><th>Nome</th><th></th></tr>
+  </thead>
+  <tbody>
+   <tr v-for="p in listaPessoas">
+    <td>{{p.nome}}</td>
+    <td><button class="btn btn-danger" v-on:click.prevent="exclui(p.id)"><i class="fa fa-close"></i></button></td>
+   </tr>
+  </tbody>
+ </table>
+
 </div>
 
 <script>
@@ -43,11 +52,49 @@
    salva: function () {
     mostraSplash();
     $.post("ws/pessoa", this.pessoa, function (data) {
-     bootbox.alert(data, function () {
-      v.getLista();
+     bootbox.alert({
+      title: 'Mensagem',
+      message: data,
+      callback: function () {
+       v.getLista();
+      }
      });
     });
     return false;
+   },
+   exclui: function (idE) {
+    bootbox.confirm({
+     title: 'Confirmação',
+     message: "Confirma a exclusão deste registro?",
+     buttons: {
+      confirm: {
+       label: 'Sim',
+       className: 'btn-success'
+      },
+      cancel: {
+       label: 'Não',
+       className: 'btn-danger'
+      }
+     },
+     callback: function (result) {
+      if (result) {
+       $.ajax({
+        url: "ws/pessoa/" + idE,
+        data: null,
+        method: 'DELETE',
+        success: function (data) {
+         bootbox.alert({
+          title: 'Mensagem',
+          message: data,
+          callback: function () {
+           v.getLista();
+          }
+         });
+        }
+       });
+      }
+     }
+    });
    },
    getLista: function () {
     $.get("ws/pessoa", null, function (data) {
