@@ -47,7 +47,7 @@
   </div>
 
 
-  <jsp:include page="comuns/navbar.jsp" flush="true" />
+    <%@include file="comuns/navbar.jsp" %>
 
 
 
