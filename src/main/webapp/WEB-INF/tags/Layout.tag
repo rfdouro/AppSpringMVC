@@ -19,7 +19,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>${TITULOPAGINA}</title>
 
-  <link href="${cp}/resources/vendor/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <!-- estilo normal -->
+  <!--link href="${cp}/resources/vendor/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
+  <!-- outros estilos -->
+  <!--link href="https://bootswatch.com/3/spacelab/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
+  <link href="https://bootswatch.com/3/cerulean/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <!--link href="https://bootswatch.com/3/journal/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
+  <!--link href="https://bootswatch.com/3/slate/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
+  <!--link href="https://bootswatch.com/3/simplex/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
+  
+  
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
   <link href="${cp}/resources/vendor/bootstrap-submenu/css/bootstrap-submenu.min.css" rel="stylesheet" type="text/css"/>
   <link href="${cp}/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
