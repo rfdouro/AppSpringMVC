@@ -11,9 +11,17 @@
   <input type="hidden" name="redir" value="${redir}"/>
   <fieldset>
    <legend>Login</legend>
-   <input placeholder="Login" name="login" type="text" autofocus>
-   <input placeholder="Senha" name="senha" type="password" value="">
-   <input type="submit" value="Logar"/>
+   <div class="row">
+    <div class="col-lg-3 col-sm-3">
+     <input placeholder="Login" name="login" type="text" class="form-control" autofocus> 
+    </div>
+    <div class="col-lg-3 col-sm-3">
+     <input placeholder="Senha" name="senha" type="password" class="form-control" value="">  
+    </div>
+    <div class="col-lg-3 col-sm-3">
+     <input type="submit" class="btn btn-default" value="Logar"/>
+    </div>
+   </div>
   </fieldset>
  </form>
 </tmp:Layout>

@@ -8,8 +8,8 @@
 <%@taglib prefix="rfd" uri="/WEB-INF/tlds/RFDOURO" %>
 <%@taglib tagdir="/WEB-INF/tags" prefix="tmp" %>
 <tmp:Layout>
- <h1>${mensagem}</h1>
- <rfd:Saudacao nome="${USULOGADO}"/>
-
+ <h2>
+  <rfd:Saudacao nome="${USULOGADO}"/>
+ </h2>
 
 </tmp:Layout>
