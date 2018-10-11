@@ -19,7 +19,7 @@ public class IndexController extends DefaultController {
  
  @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
  public String page(Model model) {
-  model.addAttribute("mensagem", "Página inicial");
+  model.addAttribute("TITULOPAGINA", "Página inicial");
   return "index";
  }
  

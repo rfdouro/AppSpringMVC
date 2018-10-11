@@ -17,7 +17,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="x-rim-auto-match" content="none">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>${host}</title>
+  <title>${TITULOPAGINA}</title>
 
   <link href="${cp}/resources/vendor/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
   <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
