@@ -53,10 +53,10 @@ public class Config implements WebMvcConfigurer {
           //.addPathPatterns("/pessoa/**")
           //.addPathPatterns("/ws/pessoa/**")
           .excludePathPatterns("/ws/**")
-          .excludePathPatterns("/**/login/**");
+          .excludePathPatterns("/**/login/**", "/socketHandler");
   registry.addInterceptor(new LoginInterceptorWS())
           .addPathPatterns("/ws/**")
-          .excludePathPatterns("/**/login/**");
+          .excludePathPatterns("/**/login/**", "/socketHandler");
  }
 
  /**
